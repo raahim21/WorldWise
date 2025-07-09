@@ -1,0 +1,5 @@
+# Don't upload node_modules (massive folder with dependencies)
+node_modules/
+
+# Don't upload environment variables (contains secrets like JWT secret, DB passwords)
+.env
