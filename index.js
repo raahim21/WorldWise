@@ -11,7 +11,7 @@ let app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "http://localhost:5173", // your React frontend
+    origin: "https://astounding-cannoli-6681fa.netlify.app/", // your React frontend
     credentials: true,
   })
 );
@@ -26,7 +26,7 @@ app.use(MainPage);
 import mongoose from "mongoose";
 async function connectDB() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/worldWise");
+    await mongoose.connect(process.env.MONGO_URL);
     app.listen(3001);
     console.log("MongoDB connected!");
   } catch (err) {
