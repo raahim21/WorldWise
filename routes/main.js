@@ -63,7 +63,7 @@ router.post("/", verifyToken, async (req, res) => {
       date,
       notes,
       position,
-      user: mongoose.Types.ObjectId(req.user._id), // use _id consistently
+      user: new mongoose.Types.ObjectId(req.user._id), // use _id consistently
     });
 
     res.status(201).json(newCity);
