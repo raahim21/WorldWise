@@ -1,6 +1,7 @@
 import express from "express";
 import { verifyToken } from "../middlewares/authMiddleWare.js";
 import City from "../models/Cities.js";
+import mongoose from "mongoose";
 
 const router = express.Router();
 
@@ -62,7 +63,7 @@ router.post("/", verifyToken, async (req, res) => {
       date,
       notes,
       position,
-      user: req.user._id, // use _id consistently
+      user: mongoose.Types.ObjectId(req.user._id), // use _id consistently
     });
 
     res.status(201).json(newCity);
