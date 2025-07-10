@@ -119,41 +119,6 @@ router.post("/delete-city/:id", verifyToken, async (req, res) => {
 
 // CREATE a new city
 router.post("/create-city", verifyToken, async (req, res) => {
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-
   try {
     const { cityName, country, emoji, date, notes, position } = req.body;
 
@@ -168,7 +133,7 @@ router.post("/create-city", verifyToken, async (req, res) => {
       date,
       notes,
       position,
-      user: req.user._id, // use _id consistently
+      user: req.user.id, // use _id consistently
     });
 
     res.status(201).json(newCity);
