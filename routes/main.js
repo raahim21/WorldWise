@@ -120,6 +120,40 @@ router.post("/delete-city/:id", verifyToken, async (req, res) => {
 // CREATE a new city
 router.post("/create-city", verifyToken, async (req, res) => {
   console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+
   try {
     const { cityName, country, emoji, date, notes, position } = req.body;
 
