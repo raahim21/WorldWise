@@ -13,12 +13,10 @@ dotenv.config();
 app.use(
   cors({
     origin: "https://worldsetsearch.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
   })
 );
 
-app.options("*", cors()); // handle preflight
+// app.options("*", cors()); // handle preflight
 
 app.use(express.json());
 app.use(cookieParser());
