@@ -11,7 +11,7 @@ let app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "https://splendid-naiad-4c1685.netlify.appl", // your React frontend
+    origin: "https://splendid-naiad-4c1685.netlify.app", // your React frontend
     credentials: true,
   })
 );
