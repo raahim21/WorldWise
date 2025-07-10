@@ -5,7 +5,7 @@ import City from "../models/Cities.js";
 const router = express.Router();
 
 // GET all cities for a specific user
-router.get("/cities", verifyToken, async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const citiesData = await City.find({ user: req.user.id });
     res.json(citiesData);
@@ -16,7 +16,7 @@ router.get("/cities", verifyToken, async (req, res) => {
 });
 
 // GET a single city by ID
-router.get("/cities/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id);
@@ -31,7 +31,7 @@ router.get("/cities/:id", async (req, res) => {
 });
 
 // DELETE a city by ID (POST method used, ideally should be DELETE)
-router.post("/delete-city/:id", verifyToken, async (req, res) => {
+router.post("/:id", verifyToken, async (req, res) => {
   try {
     const cityID = req.params.id;
     await City.deleteOne({ _id: cityID });
@@ -43,7 +43,7 @@ router.post("/delete-city/:id", verifyToken, async (req, res) => {
 });
 
 // CREATE a new city
-router.post("/create-city", verifyToken, async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
     const { cityName, country, emoji, date, notes, position } = req.body;
 

@@ -21,8 +21,8 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(authRoutes);
-app.use(MainPage);
+app.use("/api/auth", authRoutes);
+app.use("/api/cities", MainPage);
 
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
