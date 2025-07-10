@@ -71,9 +71,19 @@ router.post("/", verifyToken, async (req, res) => {
 // GET cities for the authenticated user only
 router.get("/user-cities", verifyToken, async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
 
   try {
     const userID = req.user._id;
+
     const userCities = await City.find({ user: userID });
     res.json(userCities);
   } catch (error) {
