@@ -12,7 +12,8 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "https://worldsetsearch.netlify.app/",
+    origin: "https://worldsetsearch.netlify.app",
+    credentials: true,
   })
 );
 
