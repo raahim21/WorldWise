@@ -12,6 +12,19 @@ router.get("/user-cities", verifyToken, async (req, res) => {
     const userID = new mongoose.Types.ObjectId(req.user._id);
 
     const userCities = await City.find({ user: userID });
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+    console.log(userCities);
+
     res.json(userCities);
   } catch (error) {
     console.error(error);
