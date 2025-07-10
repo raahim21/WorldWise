@@ -82,7 +82,7 @@ const router = express.Router();
 // GET all cities for a specific user
 router.get("/cities", verifyToken, async (req, res) => {
   try {
-    const citiesData = await City.find({ user: req.user._id });
+    const citiesData = await City.find({ user: req.user.id });
     res.json(citiesData);
   } catch (err) {
     console.error(err);
@@ -148,7 +148,7 @@ router.get("/user-cities", verifyToken, async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
 
   try {
-    const userID = req.user._id;
+    const userID = req.user.id;
     const userCities = await City.find({ user: userID });
     res.json(userCities);
   } catch (error) {
