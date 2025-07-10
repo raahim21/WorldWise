@@ -9,7 +9,7 @@ router.get("/user-cities", verifyToken, async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
 
   try {
-    const userID = req.user._id;
+    const userID = new mongoose.Types.ObjectId(req.user._id);
 
     const userCities = await City.find({ user: userID });
     res.json(userCities);
