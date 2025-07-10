@@ -45,16 +45,6 @@ router.get("/:id", async (req, res) => {
 });
 
 // DELETE a city by ID (POST method used, ideally should be DELETE)
-router.post("/:id", verifyToken, async (req, res) => {
-  try {
-    const cityID = req.params.id;
-    await City.deleteOne({ _id: cityID });
-    res.json({ message: "Deleting successful!" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "There was an error" });
-  }
-});
 
 // CREATE a new city
 router.post("/", verifyToken, async (req, res) => {
@@ -79,6 +69,17 @@ router.post("/", verifyToken, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Something went wrong" });
+  }
+});
+
+router.post("/:id", verifyToken, async (req, res) => {
+  try {
+    const cityID = req.params.id;
+    await City.deleteOne({ _id: cityID });
+    res.json({ message: "Deleting successful!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "There was an error" });
   }
 });
 
