@@ -7,21 +7,10 @@ const router = express.Router();
 
 router.get("/user-cities", verifyToken, async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user._id);
-  console.log(req.user._id);
 
   try {
     const userID = new mongoose.Types.ObjectId(req.user.id);
     const userCities = await City.find({ user: userID });
-    console.log(userCities);
-
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
 
     res.json(userCities);
   } catch (error) {
@@ -32,12 +21,6 @@ router.get("/user-cities", verifyToken, async (req, res) => {
 
 // GET all cities for a specific user
 router.get("/", verifyToken, async (req, res) => {
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user);
-  console.log(req.user._id);
-  console.log(req.user._id);
   try {
     const citiesData = await City.find({
       user: new mongoose.Types.ObjectId(req.user._id),
@@ -68,6 +51,7 @@ router.get("/:id", async (req, res) => {
 
 // CREATE a new city
 router.post("/", verifyToken, async (req, res) => {
+  console.log(req.user);
   try {
     const { cityName, country, emoji, date, notes, position } = req.body;
 
@@ -82,7 +66,7 @@ router.post("/", verifyToken, async (req, res) => {
       date,
       notes,
       position,
-      user: new mongoose.Types.ObjectId(req.user._id), // use _id consistently
+      user: new mongoose.Types.ObjectId(req.user.id), // use _id consistently
     });
 
     res.status(201).json(newCity);
@@ -92,9 +76,9 @@ router.post("/", verifyToken, async (req, res) => {
   }
 });
 
-router.post("/:id", verifyToken, async (req, res) => {
+router.post("/delete/:id", verifyToken, async (req, res) => {
   try {
-    const cityID = req.params.id;
+    const cityID = new mongoose.Types.ObjectId(req.params.id);
     await City.deleteOne({ _id: cityID });
     res.json({ message: "Deleting successful!" });
   } catch (err) {
