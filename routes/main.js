@@ -32,6 +32,12 @@ router.get("/user-cities", verifyToken, async (req, res) => {
 
 // GET all cities for a specific user
 router.get("/", verifyToken, async (req, res) => {
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user._id);
+  console.log(req.user._id);
   try {
     const citiesData = await City.find({
       user: new mongoose.Types.ObjectId(req.user._id),
@@ -46,7 +52,7 @@ router.get("/", verifyToken, async (req, res) => {
 // GET a single city by ID
 router.get("/:id", async (req, res) => {
   try {
-    const id = req.params.id;
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const city = await City.findById(id);
 
     if (!city) return res.status(404).json({ message: "City not found" });
