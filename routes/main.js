@@ -7,20 +7,18 @@ const router = express.Router();
 
 router.get("/user-cities", verifyToken, async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user);
+  console.log(req.user._id);
+  console.log(req.user._id);
 
   try {
     const userID = new mongoose.Types.ObjectId(req.user._id);
-
     const userCities = await City.find({ user: userID });
     console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
-    console.log(userCities);
+
     console.log(userCities);
     console.log(userCities);
     console.log(userCities);
@@ -35,7 +33,9 @@ router.get("/user-cities", verifyToken, async (req, res) => {
 // GET all cities for a specific user
 router.get("/", verifyToken, async (req, res) => {
   try {
-    const citiesData = await City.find({ user: req.user._id });
+    const citiesData = await City.find({
+      user: new mongoose.Types.ObjectId(req.user._id),
+    });
     res.json(citiesData);
   } catch (err) {
     console.error(err);
