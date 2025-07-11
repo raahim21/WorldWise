@@ -15,7 +15,7 @@ router.get("/user-cities", verifyToken, async (req, res) => {
   console.log(req.user._id);
 
   try {
-    const userID = new mongoose.Types.ObjectId(req.user._id);
+    const userID = new mongoose.Types.ObjectId(req.user.id);
     const userCities = await City.find({ user: userID });
     console.log(userCities);
 
