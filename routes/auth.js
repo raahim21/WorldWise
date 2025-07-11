@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "None", // or 'lax'
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     });
     res.status(200).json({ message: "Login successful" });
   } catch (error) {
