@@ -98,6 +98,7 @@ import { verifyToken } from "../middlewares/authMiddleWare.js";
 
 const router = express.Router();
 
+router.get("/", (req, res) => res.send("Server is alive"));
 // GET /api/cities/user-cities (Authenticated user's cities)
 router.get("/user-cities", verifyToken, async (req, res) => {
   try {
