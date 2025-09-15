@@ -89,7 +89,4 @@ mongoose
 // Start Server
 const PORT = Number(process.env.PORT) || 5000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT} (host: 0.0.0.0)`);
-  console.log(`Root: http://localhost:${PORT}/`);
-  console.log(`Health: http://localhost:${PORT}/health`);
 });

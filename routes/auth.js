@@ -109,6 +109,7 @@ const COOKIE_OPTIONS = {
 // POST /api/auth/signup
 router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
 
   // Basic validation
   if (!email || !password || password.length < 6) {
@@ -149,6 +150,7 @@ router.post("/signup", async (req, res) => {
 // POST /api/auth/login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
 
   // Basic validation
   if (!email || !password) {
